@@ -1,0 +1,61 @@
+{% extends 'my_app/new_account.html' %}
+{% load static %}
+
+{% block head_block %}
+<style>
+    .button1{
+        background-color: #3B55E6;
+        color: #fff;
+        border-radius: 30px;
+        width: 100%;
+        text-align: center;
+        transition: 0.4s ease-in-out;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        border: 1px solid #3B55E6;
+      }
+      .button1:hover{
+        background-color: #000;
+        color: #fff;
+        border: 1px solid #000;
+      }
+</style>
+{% endblock %}
+
+{% block body_block %}
+<div class="container">
+    <div class="new_banner">
+        <img src="{% static 'images/profile_pic.png' %}" style="height: 7vh;width: 8%;display: inline;border-radius: 100%;">
+        <p class="param5">{{ user.username }}</p>
+        <h2 class="header1">Update:</h2>
+        <hr>
+        <br>
+        <form method="POST" action="" class="form-group" enctype="multipart/form-data" style="font-family: 'Montserrat', sans-serif;font-weight: bolder;">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <img src="{% static 'images/profile_pic.png' %}" style="height: 30vh;width: 80%;border-radius: 100%;">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    {{ form.user }}
+                    <label for="nume">First name:</label>
+                    {{ form.first_name }}
+                    <label for="prenume" style="padding-top: 12px;">Last name:</label>
+                    {{ form.last_name }}
+                    <label for="email" style="padding-top: 12px;">Email:</label>
+                    {{ form.email }}
+                    <label for="imagine" style="padding-top: 12px;">Imagine:</label>
+                    {{ form.image }}
+                    <br>
+                    <input type="submit" class="button1" value="Update">
+                    <br>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    var name = "{{ user.id }}";
+    document.getElementById('user1').value = name;
+</script>
+{% endblock %}

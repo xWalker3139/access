@@ -1,0 +1,61 @@
+{% extends 'my_app/home.html' %}
+
+{% block head_block %}
+
+{% endblock %}
+
+{% block body_block %}
+<div class="new_banner5">
+    <div class="container">
+        <h1 style="margin-top: 3rem;">Soft Questions:</h1>
+        <br>
+        <div class="row">
+            <div class="col-lg-8 col-md-4 col-sm-6">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.user }}
+                    <label for="">What is your communication style?</label>
+                    {{ form.answer1 }}
+                    <label for="" style="margin-top: 14px;">How do you handle conflicts in the workplace?</label>
+                    {{ form.answer2 }}
+                    <br>
+                    <input type="submit" class="button1" value="Confirm">
+                    <a href="{% url 'new_account' %}" style="margin-top: 14px;">Go back to dashboard</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="jumbotron" id="jumbotron1">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <p>Additional links</p>
+          <br>
+          <p>About us</p>
+          <p>Terms and conditions</p>
+          <p>Privacy policy</p>
+          <p>News</p>
+          <p>Contact us</p>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <p>Intact</p>
+          <br>
+          <p>
+            Imperdiet parturient eleifend scelerisque natoque parturient rutrum mus eros dis ullamcorper a ullamcorper.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="jumbotron" id="jumbotron2">
+    <div class="container">
+      <p>Copyright {{ date_posted }} Access. All rights reserved.</p>
+    </div>
+  </div>
+  <script>
+        var my_name = "{{ user.id }}";
+        document.getElementById('user1').value = my_name;
+  </script>
+{% endblock %}

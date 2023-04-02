@@ -1,0 +1,38 @@
+{% extends 'my_app/old_account.html' %}
+{% load static %}
+
+{% block head_block %}
+
+{% endblock %}
+
+{% block body_block %}
+<div class="container">
+    <div class="new_banner">
+        <img src="{% static 'images/profile_pic.png' %}" style="height: 7vh;width: 8%;display: inline;border-radius: 100%;">
+        <p class="param5">{{ user.username }}</p>
+        <h2 class="header1"></h2>
+        <hr>
+        <br>
+        <div class="row">
+        {% for i in model %}
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="card" id="card1">
+                <img class="card-img-top" src="{% static 'images/profile_pic.png' %}" id="imagine1" style="height: 30vh;width: 100%;">
+                <div class="card-body">
+                    <h4 class="card-title">First name: {{ i.first_name }}</h4>
+                    <h4 class="card-title">Last name: {{ i.last_name }}</h4>
+                    <hr>
+                    <p class="card-text"></p>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-4 col-sm-6">
+                            <a href="" class="btn btn-outline-info">See details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

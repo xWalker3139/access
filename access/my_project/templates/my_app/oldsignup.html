@@ -1,0 +1,109 @@
+{% extends 'my_app/home.html' %}
+
+{% block head_block %}
+<style>
+    body{
+            height: 800px;
+            background-color: aliceblue;
+            background-image: -webkit-linear-gradient(65deg, #3B55E6 50%, aliceblue 50%);
+        }
+    #jumbotron4{
+        max-width: 500px;
+        margin: 140px auto;
+        border-radius: 5px;
+        padding: 25px 25px 25px 25px;
+        box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+        background-color: white;
+    }
+    .anchor2{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bolder;
+        text-align: center;
+        color: black;
+        font-size: 24px;
+        text-decoration: none;
+        padding-left: 46px;
+    }
+    #id_password1{
+        display: block;
+        width: 100%;
+        height: calc(1.5em + 0.75rem + 2px);
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    #id_password2{
+        display: block;
+        width: 100%;
+        height: calc(1.5em + 0.75rem + 2px);
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    .button2{
+        width: 100%;
+        border-radius: 30px;
+        color: #3B55E6;
+        text-align: center;
+        border: 2px solid #3B55E6;
+        transition: 0.4s ease-in-out;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        background-color: #fff;
+    }
+    .button2:hover{
+        background-color: #3B55E6;
+        color: #fff;
+    }
+</style>
+{% endblock %}
+
+{% block body_block %}
+<div class="new_banner4">
+    <div class="container">
+        <div class="box" id="jumbotron4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-4 col-sm-6">
+                        <a href="{% url 'my_app:oldsignup' %}" class="anchor2">Sign Up</a>
+                        <hr>
+                    </div>
+                    <div class="col-lg-6 col-md-4 col-sm-6">
+                        <a href="{% url 'my_app:oldsignin' %}" class="anchor2">Sign In</a>
+                        <hr>
+                    </div>
+                </div>
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <label for="username">Username:</label>
+                    {{ form.username }}
+                    <label for="email" style="padding-top: 14px;">E-mail:</label>
+                    {{ form.email }}
+                    <label for="password" style="padding-top: 14px;">Password:</label>
+                    {{ form.password1 }}
+                    <br>
+                    <label for="password2">Confirm password:</label>
+                    {{ form.password2 }}
+                    <br>
+                    <input type="submit" class="button2" value="Register">
+                </form>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
